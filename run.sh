@@ -15,7 +15,7 @@ PVE_KEY_FILE="/output/nodes/${PVE_HOST}/pveproxy-ssl.key"
 ## Funcs
 dump_certificates() {
   echo "Dumping acme.json to PEM files..."
-  bash /dumpcerts.sh "${DNS_RESOLVER}" /traefik/acme.json /output/ssl
+  bash /dumpcerts.sh "${DNS_PROVIDER}" /traefik/acme.json /output/ssl
 
   echo -e "\nCertificate Assets:"
   ls -lah /output/ssl/certs/ 2>/dev/null
