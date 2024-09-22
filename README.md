@@ -90,16 +90,17 @@ Set to `true` to run the dumpcert action at boot. This value exists to allow you
 
 ##### `DOMAIN`
 
-The domain you are using for your certificates.
+The domain you are using for your certificates, without a the host or  `*.`.
 
 ##### `DNS_PROVIDER`
 
 The value of the following field from your traefik.yml:
-* `certificatesResolvers.<resolver>.acme.dnsChallenge.provider`.
+* `certificatesResolvers.<resolver>.acme.dnsChallenge.provider`
 
 ##### `PVE_HOST`
 
-The hostname of your PVE node, without the domain - e.g., `pve.homelab.tech` would set `PVE_HOST=pve` and `DOMAIN=homelab.tech`.
+The hostname of your PVE node, without the domain
+* e.g., `pve.homelab.tech` would set `PVE_HOST=pve` and `DOMAIN=homelab.tech`
 
 ### Volumes
 
