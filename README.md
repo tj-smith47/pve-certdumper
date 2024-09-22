@@ -118,7 +118,7 @@ I spent about a day looking around for something that did this, and found many s
 
 That being said, I would like to give thanks and credit to the following actors for their efforts:
 
-* [mailcraft](https://github.com/mailcraft/dumpcerts) for their work updating the `dumpcerts.sh` script from Traefik v1.7 for compatiblity with Traefik v2+ 🙏
+* [mailcraft](https://github.com/mailcraft/dumpcerts) for updating the `dumpcerts.sh` script from Traefik v1.7 for compatiblity with Traefik v2+ 🙏
 * [EnigmaCurry](https://github.com/EnigmaCurry/proxmox-traefik-certdumper) for their original implementation of this project and work in `run.sh`, cutting my work in half 🚀
 
-Feel free to put up any issues for feature requests. I've considered some additional configuration options, but what I have here works for me.
+Feel free to put up an issues for feature requests and I will do my best to get to them promptly. I've considered some additional config options, but what I have here works for me.
