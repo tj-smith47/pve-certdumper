@@ -1,10 +1,10 @@
 # Traefik dumpcerts for PVE
 
-This service dumps the certificates from Traefik's unified `acme.json` and reformats them to allow them to be used in Proxmox VE. This enables your bare-metal PVE node to benefit from the simplicity of Traefik's cert auto-renewal & tls termination.
+This service dumps the certificates from Traefik's unified `acme.json` and reformats them for use w/ PVE.
 
 ## Motivation
 
-While PVE can handle automatic ACME cert renewal, if you run Traefik to reverse-proxy your Proxmox URL, it's a much more pleasant experience to have all of your configuration done in one place.
+This enables your bare-metal PVE node to benefit from the simplicity of Traefik's cert auto-renewal & tls termination. While PVE can handle automatic ACME cert renewal, if you run Traefik to reverse-proxy your Proxmox URL, it's a much more pleasant experience to have all of your configuration done in one place.
 
 ## Background
 
