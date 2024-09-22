@@ -84,9 +84,9 @@ Within 1 minute of starting, your wildcard certs will be planted for use by PVE,
 
 ### Environment Variables
 
-##### `BOOTSTRAP`
+##### `BOOTSTRAP` (default: false)
 
-Set to `true` to run the dumpcert action at boot. This value exists to allow you to disable the initial run, because once it completes, it will trigger `systemctl restart pveproxy`, which you may not always want if frequently restarting. Defaults to false if omitted.
+Set to `true` to run the dumpcert action at boot. This value exists to allow you to disable the initial run, because once it completes, it will trigger `systemctl restart pveproxy`, which may be undesireable.
 
 ##### `DOMAIN`
 
@@ -94,7 +94,8 @@ The domain you are using for your certificates.
 
 ##### `DNS_PROVIDER`
 
-The value of the following field from your traefik.yml: `certificatesResolvers.<resolver>.acme.dnsChallenge.provider`.
+The value of the following field from your traefik.yml:
+* `certificatesResolvers.<resolver>.acme.dnsChallenge.provider`.
 
 ##### `PVE_HOST`
 
@@ -118,3 +119,5 @@ That being said, I would like to give thanks and credit to the following actors 
 
 * [mailcraft](https://github.com/mailcraft/dumpcerts) for their work updating the `dumpcerts.sh` script from Traefik v1.7 for compatiblity with Traefik v2+ 🙏
 * [EnigmaCurry](https://github.com/EnigmaCurry/proxmox-traefik-certdumper) for their original implementation of this project and work in `run.sh`, cutting my work in half 🚀
+
+Feel free to put up any issues for feature requests. I've considered some additional configuration options, but what I have here works for me.
