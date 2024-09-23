@@ -79,8 +79,8 @@ if ! [ -d /output/ssl/pem ]; then
   mkdir -p /output/ssl/pem
 fi
 
-if [ "${BOOTSTRAP}" == "true" ]; then
-  echo -e "Running scripts before watch because \$BOOTSTRAP == true.\n"
+if [ "${RUN_ON_START}" == "true" ]; then
+  echo -e "Running scripts before watch because \$RUN_ON_START == true.\n"
   dump_certificates
   copy_to_proxmox
 fi

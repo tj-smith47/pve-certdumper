@@ -28,7 +28,7 @@ services:
         - certdumper:latest
     container_name: pve-certdumper
     environment:
-      BOOTSTRAP: true
+      RUN_ON_START: true
       DOMAIN: mydomain.tld
       DNS_PROVIDER: cloudflare
       PVE_HOST: pve
@@ -51,7 +51,7 @@ services:
     image: certdumper:latest
     container_name: pve-certdumper
     environment:
-      BOOTSTRAP: true
+      RUN_ON_START: true
       DOMAIN: mydomain.tld
       DNS_PROVIDER: cloudflare
       PVE_HOST: pve
@@ -90,9 +90,9 @@ Within 1 minute of starting, your wildcard certs will be planted for use by PVE,
 
 ### Environment Variables
 
-##### `BOOTSTRAP` (default: false)
+##### `RUN_ON_START` (default: false)
 
-Set to `true` to run the dumpcert action at boot. This value exists to allow you to disable the initial run, because once it completes, it will trigger `systemctl restart pveproxy`, which may be undesireable.
+Set to `true` to run the dumpcert action at boot (each restart will trigger `systemctl restart pveproxy`, which may be undesireable).
 
 ##### `DOMAIN`
 
