@@ -14,19 +14,19 @@ PVE_KEY_FILE="/output/nodes/${PVE_HOST}/pveproxy-ssl.key"
 
 ## Funcs
 dump_certificates() {
-  echo "Dumping acme.json to PEM files..."
+  echo "========== Dumping acme.json to PEM files =========="
   bash /dumpcerts.sh "${DNS_PROVIDER}" /traefik/acme.json /output/ssl
 
-  echo -e "\nCertificate Assets:"
+  echo -e "\n================ Certificate Assets ================"
   ls -lah /output/ssl/certs/ 2>/dev/null
 
-  echo -e "\nPrivate Assets:"
+  echo -e "\n================== Private Assets =================="
   ls -lah /output/ssl/private/ 2>/dev/null
 
-  echo -e "\nConverted Assets:"
+  echo -e "\n================= Converted Assets ================="
   ls -lah /output/ssl/pem/ 2>/dev/null
 
-  echo -e "\nConverting certificates from dump..."
+  echo -e "\n============= Formatting certs from dump ============="
   while read -r crt_file; do
     local pem_file
     pem_file=$(echo "${crt_file}" | sed 's/certs/pem/g' | sed 's/.crt/-public.pem/g')
@@ -35,7 +35,7 @@ dump_certificates() {
     openssl x509 -inform PEM -in "${crt_file}" >"${pem_file}"
   done < <(ls /output/ssl/certs/*)
 
-  echo -e "\nConverting private keys from dump..."
+  echo -e "\n============ Formatting keys from dump ============"
   while read -r key_file; do
     local pem_file
     pem_file=$(echo "${key_file}" | sed 's/private/pem/g' | sed 's/.key/-private.pem/g')
@@ -69,7 +69,7 @@ copy_to_proxmox() {
       echo -e "Notifying host of need to run 'systemctl restart pveproxy'."
       touch /output/ssl/needs-restart
     fi
-    echo
+    echo -e "Done.\n"
   fi
 }
 
